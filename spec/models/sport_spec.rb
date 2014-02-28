@@ -1,4 +1,6 @@
 require 'spec_helper'
+require 'models/outcome'
+require 'models/event'
 require 'models/sport'
 
 describe Sport do

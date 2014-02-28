@@ -15,6 +15,6 @@ class Event
   field :status
   field :status_type
   field :total_outcomes
-  has_many :outcomes
+  has_many :outcomes, type: Outcome
 
 end

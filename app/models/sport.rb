@@ -5,6 +5,6 @@ class Sport
   field :pos
   field :title
   field :is_virtual
-  has_many :events
+  has_many :events, type: Event
   has_many :meetings
 end
