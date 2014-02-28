@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'models/outcome'
 
 describe Outcome do
   let(:data) {

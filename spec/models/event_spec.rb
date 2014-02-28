@@ -1,6 +1,4 @@
 require 'spec_helper'
-require 'models/outcome'
-require 'models/event'
 
 describe Event do
   let(:data) {
