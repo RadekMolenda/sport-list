@@ -9,5 +9,5 @@ group :test do
   gem 'simplecov'
   gem 'webmock'
   gem 'cucumber'
-  gem 'webrat'
+  gem 'capybara'
 end
