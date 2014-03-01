@@ -1,0 +1,7 @@
+require 'catcher'
+require 'id'
+require './lib/sports_dao'
+require './app/models/outcome'
+require './app/models/event'
+require './app/models/sport'
+require './app/models/sport_list'

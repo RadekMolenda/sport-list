@@ -21,6 +21,4 @@ describe Sport do
     it { expect(subject.pos).to eq(3) }
     it { expect(subject.meetings).to eq([]) }
   end
-
-
 end
