@@ -1,5 +1,5 @@
 <ul>
   <% @sports.each do |sport| %>
-    <li><%= sport.title %></li>
+    <li><a href="/sports/<%=sport.id%>"><%= sport.title %></a></li>
   <% end %>
 </ul>

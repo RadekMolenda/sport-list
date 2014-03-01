@@ -21,9 +21,10 @@ describe Event do
     }
   }
 
-  subject { described_class.new(data) }
+  let(:event) { described_class.new(data) }
 
   describe "attributes" do
+    subject { event }
     it { expect(subject.id).to eq(44017910) }
     it { expect(subject.is_virtual).to eq(false) }
     it { expect(subject.outcomes).to eq([]) }
@@ -40,4 +41,5 @@ describe Event do
     it { expect(subject.status_type).to eq("text") }
     it { expect(subject.total_outcomes).to eq(0) }
   end
+
 end

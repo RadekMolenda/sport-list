@@ -3,3 +3,7 @@ Feature: Sport list
 Scenario: List all sports
   Given I am on the sports page
   Then I should see a list of sports
+
+Scenario: Method to list all events for a given sport
+  Given I clicked on Football sport
+  Then I should see an ordered list of Football events

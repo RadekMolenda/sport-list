@@ -6,7 +6,7 @@ describe Sport do
       id: 1,
       title: "title",
       is_virtual: false,
-      events: [{id: 1}],
+      events: [{id: 1, pos: 2}, {id: 3, pos: 1}],
       pos: 3,
       meetings: []
     }
@@ -40,6 +40,12 @@ describe Sport do
 
       it { expect(subject).to be_nil }
     end
+  end
+
+  describe "ordered_events" do
+    subject { sport.ordered_events }
+
+    it { expect(subject.map(&:id)).to eq([3, 1]) }
   end
 
 end

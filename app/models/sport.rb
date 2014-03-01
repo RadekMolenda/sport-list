@@ -12,4 +12,7 @@ class Sport
     events.detect { |event| event.id == id }
   end
 
+  def ordered_events
+    events.sort { |a, b| a.pos <=> b.pos }
+  end
 end
