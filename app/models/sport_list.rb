@@ -8,6 +8,10 @@ class SportList
     sports.detect { |sport| sport.id == id }
   end
 
+  def ordered_sports
+    sports.sort { |a, b| a.pos <=> b.pos }
+  end
+
   def self.fetch
     new SportsDAO.fetch_for
   end

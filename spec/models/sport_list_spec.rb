@@ -4,7 +4,7 @@ describe SportList do
   let(:data) {
     {
       version: "version",
-      sports: [{ id: 1 }]
+      sports: [{ id: 1, pos: 2 }, { id: 3, pos: 1}]
     }
   }
 
@@ -15,7 +15,13 @@ describe SportList do
     it { expect(sport_list.sports).not_to be_empty }
   end
 
-  describe "find_sport" do
+  describe "#ordered_sports" do
+    subject { sport_list.ordered_sports }
+
+    it { expect(subject.map(&:id)).to eq([3, 1]) }
+  end
+
+  describe "#find_sport" do
     let(:sport_id) { 1 }
     subject { sport_list.find_sport(sport_id) }
 
