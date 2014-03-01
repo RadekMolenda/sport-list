@@ -87,6 +87,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    rake (0.9.6)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -131,6 +132,7 @@ DEPENDENCIES
   catcher!
   cucumber
   id!
+  rake
   rspec
   simplecov
   sinatra
