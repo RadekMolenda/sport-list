@@ -1,0 +1,5 @@
+<ul class="side-nav">
+  <% @outcomes.each do |outcome| %>
+     <li>Market: <%= outcome.market %>, <%= outcome.description %>: <%= outcome.price %></li>
+  <% end %>
+</ul>

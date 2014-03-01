@@ -25,4 +25,13 @@ class Application < Sinatra::Base
     @events = @sport.ordered_events
     erb :sport
   end
+
+  get '/sports/:sport_id/events/:event_id' do
+    sport_list = SportList.fetch
+    @sport = sport_list.find_sport(params[:sport_id].to_i)
+    @event = @sport.find_event(params[:event_id].to_i)
+    @outcomes = @event.outcomes
+    erb :outcomes
+  end
+
 end

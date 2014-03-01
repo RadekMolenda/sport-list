@@ -7,3 +7,7 @@ Scenario: List all sports
 Scenario: Method to list all events for a given sport
   Given I clicked on Football sport
   Then I should see an ordered list of Football events
+
+Scenario: Method to list all outcomes for a given event
+  Given I clicked on Football event
+  Then I should see a list of outcomes
