@@ -33,4 +33,12 @@ describe SportList do
       it { expect(subject).to be_nil }
     end
   end
+
+  describe ".fetch" do
+    it "fetches the data" do
+      SportsDAO.should_receive(:fetch_for).and_return(data)
+      SportList.should_receive(:new).with(data)
+      SportList.fetch
+    end
+  end
 end

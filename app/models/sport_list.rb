@@ -7,4 +7,8 @@ class SportList
   def find_sport(id)
     sports.detect { |sport| sport.id == id }
   end
+
+  def self.fetch
+    new SportsDAO.fetch_for
+  end
 end
