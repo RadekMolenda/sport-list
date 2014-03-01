@@ -6,19 +6,40 @@ describe Sport do
       id: 1,
       title: "title",
       is_virtual: false,
-      events: [],
+      events: [{id: 1}],
       pos: 3,
       meetings: []
     }
   }
-  subject { described_class.new(data) }
+
+  let(:sport) { described_class.new(data) }
 
   describe "attributes" do
-    it { expect(subject.id).to eq(1) }
-    it { expect(subject.title).to eq("title") }
-    it { expect(subject.is_virtual).to be_false }
-    it { expect(subject.events).to eq([]) }
-    it { expect(subject.pos).to eq(3) }
-    it { expect(subject.meetings).to eq([]) }
+    it { expect(sport.id).to eq(1) }
+    it { expect(sport.title).to eq("title") }
+    it { expect(sport.is_virtual).to be_false }
+    it { expect(sport.events).not_to be_empty }
+    it { expect(sport.pos).to eq(3) }
+    it { expect(sport.meetings).to eq([]) }
   end
+
+  describe "find_event" do
+    let(:event_id) { 1 }
+    subject { sport.find_event(event_id) }
+
+    it "searches for event" do
+      expect(subject).not_to be_nil
+    end
+
+    it "returns event" do
+      expect(subject).to be_a Event
+    end
+
+    context "id not in database" do
+      let(:event_id) { 2 }
+
+      it { expect(subject).to be_nil }
+    end
+  end
+
 end
