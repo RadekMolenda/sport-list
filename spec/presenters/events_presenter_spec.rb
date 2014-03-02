@@ -6,11 +6,12 @@ describe EventsPresenter do
   let(:params) { {} }
   let(:sport) { double("Sport",
                        ordered_events: events) }
+  let(:sports) { [sport] }
   let(:event) { double("Event") }
   let(:events) { [event] }
-
+  let(:sport_id) { 1 }
+  let(:event_id) { 1 }
   describe "#events" do
-    let(:sport_id) { 1 }
     let(:params) { { "sport_id" => sport_id } }
 
     subject { presenter.events }
@@ -22,8 +23,6 @@ describe EventsPresenter do
   end
 
   describe "#event" do
-    let(:sport_id) { 1 }
-    let(:event_id) { 1 }
     let(:params) { { "sport_id" => sport_id, "event_id" => event_id } }
 
     subject { presenter.event }
@@ -36,5 +35,27 @@ describe EventsPresenter do
       expect(presenter).to receive(:sport).and_return(sport)
       expect(subject).to eq(event)
     end
+  end
+
+  describe "#events_locals" do
+    let(:params) { { "sport_id" => sport_id, "event_id" => event_id } }
+    let(:expected) {
+      {
+        active: -1,
+        events: events,
+        sports: sports,
+        sport: sport
+      }
+    }
+
+    subject { presenter.events_locals }
+
+    before do
+      sport_list.stub(:find_sport).with(sport_id).and_return(sport)
+      sport_list.stub(:ordered_sports).and_return(sports)
+    end
+
+    it { expect(subject).to eq(expected) }
+
   end
 end
