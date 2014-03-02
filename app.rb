@@ -29,17 +29,17 @@ class Application < Sinatra::Base
   end
 
   get '/sports' do
-    @sports = SportsPresenter.new(@sport_list, params)
-    erb :sports, locals: { active: -1 }
+    sports_presenter = SportsPresenter.new(@sport_list, params)
+    erb :sports, locals: { active: -1, sports: sports_presenter.sports }
   end
 
   get '/sports/:sport_id' do
-    @sports = EventsPresenter.new(@sport_list, params)
-    erb :events, locals: { active: -1 }
+    events_presenter = EventsPresenter.new(@sport_list, params)
+    erb :events, locals: { active: -1, events: events_presenter.events, sport: events_presenter.sport, sports: events_presenter.sports }
   end
 
   get '/sports/:sport_id/events/:event_id' do
-    @sports = OutcomesPresenter.new(@sport_list, params)
-    erb :outcomes
+    outcomes_presenter = OutcomesPresenter.new(@sport_list, params)
+    erb :outcomes, locals: { sports: outcomes_presenter.sports, event: outcomes_presenter.event, events: outcomes_presenter.events, outcomes: outcomes_presenter.outcomes, sport: outcomes_presenter.sport }
   end
 end
