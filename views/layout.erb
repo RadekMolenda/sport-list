@@ -22,8 +22,8 @@
 
       <section class="top-bar-section">
         <ul class="right">
-          <% @locales.each do |locale| %>
-            <li class="<%= locale == session[:locale] ? 'active' : '' %>"><a href="/set_locale/<%= locale %>"><%= locale.upcase %></a></li>
+          <% I18n.available_locales.each do |locale| %>
+            <li class="<%= locale.to_s == session[:locale] ? 'active' : '' %>"><a href="/set_locale/<%= locale %>"><%= locale.upcase %></a></li>
           <% end %>
         </ul>
       </section>
