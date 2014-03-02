@@ -1,5 +1,8 @@
-<ul class="side-nav">
-  <% @outcomes.each do |outcome| %>
-     <li>Market: <%= outcome.market %>, <%= outcome.description %>: <%= outcome.price %></li>
-  <% end %>
-</ul>
+<%= erb(:sport, layout: false, locals: { active: @event.id }) %>
+<div class="large-4 columns left">
+  <ul class="side-nav">
+    <% @outcomes.each do |outcome| %>
+      <li>Market: <%= outcome.market %>, <%= outcome.description %>: <%= outcome.price %></li>
+    <% end %>
+  </ul>
+</div>

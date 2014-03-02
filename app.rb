@@ -13,22 +13,27 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  before do
+    @sport_list = SportList.fetch
+    @sports = @sport_list.ordered_sports
+  end
+
+  ['/sports/:sport_id', '/sports/:sport_id/events/:event_id'].each do |path|
+    before path do
+      @sport = @sport_list.find_sport(params[:sport_id].to_i)
+      @events = @sport.ordered_events
+    end
+  end
+
   get '/sports' do
-    sport_list = SportList.fetch
-    @sports = sport_list.ordered_sports
-    erb :sports
+    erb :sports, locals: { active: -1 }
   end
 
   get '/sports/:sport_id' do
-    sport_list = SportList.fetch
-    @sport = sport_list.find_sport(params[:sport_id].to_i)
-    @events = @sport.ordered_events
-    erb :sport
+    erb :sport, locals: { active: -1 }
   end
 
   get '/sports/:sport_id/events/:event_id' do
-    sport_list = SportList.fetch
-    @sport = sport_list.find_sport(params[:sport_id].to_i)
     @event = @sport.find_event(params[:event_id].to_i)
     @outcomes = @event.outcomes
     erb :outcomes

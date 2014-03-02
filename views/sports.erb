@@ -1,5 +1,7 @@
-<ul class="side-nav">
-  <% @sports.each do |sport| %>
-    <li><a href="/sports/<%=sport.id%>"><%= sport.title %></a></li>
-  <% end %>
-</ul>
+<div class="large-4 columns left">
+  <ul class="side-nav">
+    <% @sports.each do |sport| %>
+      <li class="<%= sport.id == active ? 'active' : '' %>"><a href="/sports/<%=sport.id%>"><%= sport.title %></a></li>
+    <% end %>
+  </ul>
+</div>
