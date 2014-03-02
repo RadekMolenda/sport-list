@@ -5,7 +5,7 @@
     git clone https://github.com/RadekMolenda/sport-list
     cd sport-list
     bundle install
-    bundle exec rackup
+    bundle exec rackup    #port: 9292
 
 ## Testing
 Following command runs test suite, both rspec and cucumber
