@@ -38,6 +38,10 @@ class Application < Sinatra::Base
     end
   end
 
+  get '/' do
+    redirect '/sports'
+  end
+
   get '/sports' do
     erb :sports, locals: { active: -1 }
   end
