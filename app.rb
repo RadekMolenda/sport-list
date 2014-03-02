@@ -20,22 +20,26 @@ class Application < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  before do
+    @sport_list = SportList.fetch(I18n.locale)
+  end
+
   get '/' do
     redirect '/sports'
   end
 
   get '/sports' do
-    @sport_list = SportsPresenter.new(SportList.fetch(I18n.locale), params)
+    @sports = SportsPresenter.new(@sport_list, params)
     erb :sports, locals: { active: -1 }
   end
 
   get '/sports/:sport_id' do
-    @sport_list = EventsPresenter.new(SportList.fetch(I18n.locale), params)
+    @sports = EventsPresenter.new(@sport_list, params)
     erb :sport, locals: { active: -1 }
   end
 
   get '/sports/:sport_id/events/:event_id' do
-    @sport_list = OutcomesPresenter.new(SportList.fetch(I18n.locale), params)
+    @sports = OutcomesPresenter.new(@sport_list, params)
     erb :outcomes
   end
 end
