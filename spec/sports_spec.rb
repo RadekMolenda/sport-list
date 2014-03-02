@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe SportsDAO do
-  subject { SportsDAO.fetch_for }
+  let(:locale) { 'en' }
+
+  subject { SportsDAO.fetch_for({locale: locale}) }
 
   before do
     stub_request(:get, "http://www.betvictor.com/live/en/live/list.json")
@@ -9,4 +11,16 @@ describe SportsDAO do
   end
 
   it { expect(subject).to be_a Hash }
+
+  context "different locale" do
+    let(:locale) { 'it' }
+    let(:data) { double('data') }
+    before do
+      stub_request(:get, "http://www.betvictor.com/live/it/live/list.json").to_return(:status => 200, :body => "{\"data\": \"some data\" }")
+    end
+
+    it "fetches the data for different locale" do
+      expect(subject).to eq({"data" => "some data"})
+    end
+  end
 end

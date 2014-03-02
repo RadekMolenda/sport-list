@@ -40,11 +40,12 @@ describe SportList do
     end
   end
 
-  describe ".fetch" do
+  describe ".fetch(locale)" do
+    let(:locale) { double('locale') }
     it "fetches the data" do
-      SportsDAO.should_receive(:fetch_for).and_return(data)
+      SportsDAO.should_receive(:fetch_for).with(locale: locale).and_return(data)
       SportList.should_receive(:new).with(data)
-      SportList.fetch
+      SportList.fetch locale
     end
   end
 end

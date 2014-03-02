@@ -1,6 +1,8 @@
 Given(/^I am on the sports page$/) do
   stub_request(:get, "http://www.betvictor.com/live/en/live/list.json")
       .to_return(:status => 200, :body => File.read("spec/support/list.json"), :headers => {})
+  stub_request(:get, "http://www.betvictor.com/live/it/live/list.json")
+      .to_return(:status => 200, :body => File.read("spec/support/list.json"), :headers => {})
 
   visit "/sports"
 end
@@ -26,3 +28,11 @@ end
 Then(/^I should see a list of outcomes$/) do
   expect(page).to have_content "Market: Match Betting - 90 Mins, Godoy Cruz: 12/1 Market: Match Betting - 90 Mins, Draw: 6/1 Market: Match Betting - 90 Mins, Gimnasia La Plata: 2/11"
 end
+
+Given(/^I am on the homepage$/) do
+  stub_request(:get, "http://www.betvictor.com/live/en/live/list.json")
+      .to_return(:status => 200, :body => File.read("spec/support/list.json"), :headers => {})
+  visit "/"
+end
+
+

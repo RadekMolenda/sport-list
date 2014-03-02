@@ -25,10 +25,11 @@ class Application < Sinatra::Base
 
   before do
     session[:locale] ||= 'en'
-    @sport_list = SportList.fetch
-    @sports = @sport_list.ordered_sports
-    @locales = ['en', 'it', 'he']
     I18n.locale = session[:locale]
+    @locales = ['en', 'it', 'he']
+
+    @sport_list = SportList.fetch(I18n.locale)
+    @sports = @sport_list.ordered_sports
   end
 
   ['/sports/:sport_id', '/sports/:sport_id/events/:event_id'].each do |path|
