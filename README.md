@@ -1,1 +1,13 @@
 # Sport List [![Build Status](https://travis-ci.org/RadekMolenda/sport-list.png?branch=master)](https://travis-ci.org/RadekMolenda/sport-list) [![Code Climate](https://codeclimate.com/github/RadekMolenda/sport-list.png)](https://codeclimate.com/github/RadekMolenda/sport-list)
+
+## instalation
+
+    git clone https://github.com/RadekMolenda/sport-list
+    cd sport-list
+    bundle install
+    bundle exec rackup
+
+## Testing
+Following command runs test suite, both rspec and cucumber
+
+    bundle exec rake
