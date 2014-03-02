@@ -14,7 +14,7 @@ class SportsPresenter
 
   def sports_locals
     {
-      active: -1,
+      active_id: -1,
       sports: sports
     }
   end

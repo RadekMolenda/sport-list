@@ -41,7 +41,7 @@ describe EventsPresenter do
     let(:params) { { "sport_id" => sport_id, "event_id" => event_id } }
     let(:expected) {
       {
-        active: -1,
+        active_id: -1,
         events: events,
         sports: sports,
         sport: sport

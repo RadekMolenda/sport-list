@@ -48,5 +48,4 @@ describe OutcomesPresenter do
     it { expect(subject).to eq(expected) }
 
   end
-
 end

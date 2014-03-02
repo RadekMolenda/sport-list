@@ -1,8 +1,8 @@
-<%= erb(:sports, layout: false, locals: { active: sport.id, sports: sports }) %>
+<%= erb(:sports, layout: false, locals: { active_id: sport.id, sports: sports }) %>
 <div class="large-4 columns left">
   <ul class="side-nav">
     <% events.each do |event| %>
-      <li class="<%= event.id == active ? 'active' : '' %>"><a href="/sports/<%= sport.id %>/events/<%= event.id %>"><%= event.title %></a></li>
+      <li class="<%= active_copy(event, active_id) %>"><a href="/sports/<%= sport.id %>/events/<%= event.id %>"><%= event.title %></a></li>
     <% end %>
   </ul>
 </div>

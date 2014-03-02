@@ -12,9 +12,14 @@ require './app/models/sport_list'
 require './app/presenters/sports_presenter'
 require './app/presenters/events_presenter'
 require './app/presenters/outcomes_presenter'
+require './app/helpers/helpers'
 
 class Application < Sinatra::Base
   use LocaleMiddleware
+
+  helpers do
+    include Helpers
+  end
 
   configure :development do
     register Sinatra::Reloader

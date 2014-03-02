@@ -1,4 +1,4 @@
-<%= erb(:events, layout: false, locals: { active: event.id, sports: sports, sport: sport, events: events }) %>
+<%= erb(:events, layout: false, locals: { active_id: event.id, sports: sports, sport: sport, events: events }) %>
 <div class="large-4 columns left">
   <ul class="side-nav">
     <% outcomes.each do |outcome| %>

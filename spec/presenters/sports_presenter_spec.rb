@@ -30,7 +30,7 @@ describe SportsPresenter do
   describe "#sport_locals" do
     let(:expected) {
       {
-        active: -1,
+        active_id: -1,
         sports: sports
       }
     }

@@ -9,7 +9,7 @@ class EventsPresenter < SportsPresenter
 
   def events_locals
     {
-      active: -1,
+      active_id: -1,
       events: events,
       sports: sports,
       sport: sport
