@@ -4,7 +4,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Radek Molenda: Sports -> Events -> Outcomes</title>
+    <title><%= I18n.t("title") %></title>
     <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,400,300,700" />
 
     <link type="text/css" rel="stylesheet" href="/css/normalize.css" />
@@ -13,8 +13,21 @@
   </head>
 
   <body>
-    <header class="row">
-    </header>
+    <nav class="top-bar" data-topbar>
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="/sports"><%= I18n.t("sports") %></a></h1>
+        </li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <% @locales.each do |locale| %>
+            <li class="<%= locale == session[:locale] ? 'active' : '' %>"><a href="/set_locale/<%= locale %>"><%= locale.upcase %></a></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
     <div class="row">
       <div class="large-12 columns main">
         <div class="row">

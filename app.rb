@@ -2,6 +2,8 @@ require 'sinatra'
 require 'sinatra/reloader'
 require 'catcher'
 require 'id'
+require 'i18n'
+require 'i18n/backend/fallbacks'
 require './lib/sports_dao'
 require './app/models/outcome'
 require './app/models/event'
@@ -9,13 +11,24 @@ require './app/models/sport'
 require './app/models/sport_list'
 
 class Application < Sinatra::Base
+  enable :sessions
+
   configure :development do
     register Sinatra::Reloader
   end
 
+  configure do
+    I18n::Backend::Simple.send(:include, I18n::Backend::Fallbacks)
+    I18n.load_path += Dir[File.join(settings.root, 'locales', '*.yml')]
+    I18n.backend.load_translations
+  end
+
   before do
+    session[:locale] ||= 'en'
     @sport_list = SportList.fetch
     @sports = @sport_list.ordered_sports
+    @locales = ['en', 'it', 'he']
+    I18n.locale = session[:locale]
   end
 
   ['/sports/:sport_id', '/sports/:sport_id/events/:event_id'].each do |path|
@@ -37,6 +50,11 @@ class Application < Sinatra::Base
     @event = @sport.find_event(params[:event_id].to_i)
     @outcomes = @event.outcomes
     erb :outcomes
+  end
+
+  get '/set_locale/:locale' do
+    session[:locale] = params[:locale] if @locales.detect{ |locale| locale == params[:locale] }
+    redirect "/sports"
   end
 
 end
