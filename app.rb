@@ -29,8 +29,8 @@ class Application < Sinatra::Base
   end
 
   get '/sports' do
-    sports_presenter = SportsPresenter.new(@sport_list, params)
-    erb :sports, locals: { active: -1, sports: sports_presenter.sports }
+    presenter = SportsPresenter.new(@sport_list, params)
+    erb :sports, locals: presenter.sports_locals
   end
 
   get '/sports/:sport_id' do

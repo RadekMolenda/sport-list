@@ -12,6 +12,13 @@ class SportsPresenter
     sport_list.find_sport(sport_id)
   end
 
+  def sports_locals
+    {
+      active: -1,
+      sports: sports
+    }
+  end
+
   private
   attr_reader :sport_list, :params
 

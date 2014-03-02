@@ -26,4 +26,17 @@ describe SportsPresenter do
 
     it { expect(subject).to eq(sport) }
   end
+
+  describe "#sport_locals" do
+    let(:expected) {
+      {
+        active: -1,
+        sports: sports
+      }
+    }
+
+    subject { presenter.sports_locals }
+
+    it { expect(subject).to eq(expected) }
+  end
 end
