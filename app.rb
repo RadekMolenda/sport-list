@@ -1,6 +1,5 @@
 require 'sinatra'
 require 'sinatra/reloader'
-require 'catcher'
 require 'id'
 require 'i18n'
 require 'i18n/backend/fallbacks'

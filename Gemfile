@@ -1,10 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'catcher', github: 'onthebeach/catcher'
 gem 'id', github: 'onthebeach/id'
 gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'rake'
+gem 'yajl-ruby'
 
 group :test do
   gem 'rspec'
