@@ -13,9 +13,11 @@ require './app/presenters/sports_presenter'
 require './app/presenters/events_presenter'
 require './app/presenters/outcomes_presenter'
 require './app/helpers/helpers'
+require './sports_api'
 
 class Application < Sinatra::Base
   use LocaleMiddleware
+  use SportsApi
 
   helpers do
     include Helpers

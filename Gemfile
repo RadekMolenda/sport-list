@@ -12,4 +12,5 @@ group :test do
   gem 'webmock'
   gem 'cucumber'
   gem 'capybara'
+  gem 'rack-test'
 end
