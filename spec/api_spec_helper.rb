@@ -8,6 +8,6 @@ require 'support/api/helper'
 
 require "./app.rb"
 
-Rspec.configure do |config|
+RSpec.configure do |config|
   config.include ApiHelper, :type => :api
 end

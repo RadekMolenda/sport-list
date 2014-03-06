@@ -1,0 +1,72 @@
+{
+    "sports": [
+        {
+            "events": [
+                {
+                    "id": 216902710,
+                    "outcomes": [
+                        {
+                            "description": "Godoy Cruz",
+                            "market": "Match Betting - 90 Mins",
+                            "price": "12/1"
+                        },
+                        {
+                            "description": "Draw",
+                            "market": "Match Betting - 90 Mins",
+                            "price": "6/1"
+                        },
+                        {
+                            "description": "Gimnasia La Plata",
+                            "market": "Match Betting - 90 Mins",
+                            "price": "2/11"
+                        }
+                    ],
+                    "pos": 786,
+                    "title": "Godoy Cruz v Gimnasia La Plata"
+                },
+                {
+                    "id": 25544810,
+                    "outcomes": [
+                        {
+                            "description": "Ituano SP",
+                            "market": "Match Betting - 90 Mins",
+                            "price": "4/6"
+
+                        },
+                        {
+                            "description": "Draw",
+                            "market": "Match Betting - 90 Mins",
+                            "price": "5/2"
+                        },
+                        {
+                            "description": "CA Linense",
+                            "market": "Match Betting - 90 Mins",
+                            "price": "19/4"
+                        }
+                    ],
+                    "pos": 789,
+                    "title": "Ituano SP v CA Linense"
+                }
+            ],
+            "id": 100,
+            "pos": 1,
+            "title": "Football"
+        },
+        {
+            "events": [
+                {
+                    "id": 217074810,
+                    "is_virtual": false,
+                    "market_id": null,
+                    "outcomes": [],
+                    "pos": 99,
+                    "title": "Outright In Running"
+                }
+            ],
+            "id": 400,
+            "pos": 14,
+            "title": "Golf"
+        }
+    ],
+    "version": "50134729610002_386dc7b3c_en_2_1"
+}

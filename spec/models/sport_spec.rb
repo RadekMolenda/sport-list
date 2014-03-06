@@ -48,4 +48,11 @@ describe Sport do
     it { expect(subject.map(&:id)).to eq([3, 1]) }
   end
 
+  describe "to_json" do
+    subject { sport.to_json }
+
+    let(:expected) {"{\"title\":\"title\",\"id\":1}"}
+
+    it { expect(subject).to eq(expected) }
+  end
 end

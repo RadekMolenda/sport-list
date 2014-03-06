@@ -15,4 +15,16 @@ class Sport
   def ordered_events
     events.sort { |a, b| a.pos <=> b.pos }
   end
+
+  def to_json(options = {})
+    Yajl::Encoder.encode(as_json)
+  end
+
+  private
+  def as_json
+    {
+      title: title,
+      id: id
+    }
+  end
 end
