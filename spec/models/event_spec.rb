@@ -42,4 +42,11 @@ describe Event do
     it { expect(subject.total_outcomes).to eq(0) }
   end
 
+  describe '#to_json' do
+    subject { event.to_json }
+
+    let(:expected) {"{\"id\":44017910,\"title\":\"Athletic Bilbao v Granada CF\"}"}
+
+    it { expect(subject).to eq(expected) }
+  end
 end

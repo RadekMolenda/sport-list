@@ -17,4 +17,15 @@ class Event
   field :total_outcomes
   has_many :outcomes, type: Outcome
 
+  def to_json(options = {})
+    Yajl::Encoder.encode(as_json)
+  end
+
+  private
+  def as_json
+    {
+      id: id,
+      title: title
+    }
+  end
 end
