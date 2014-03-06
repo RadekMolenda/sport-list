@@ -1,5 +1,5 @@
 Feature: Sport list
-Scenario: Redirect from homepage
+Scenario: homepage
   Given I am on the homepage
   Then I should see a list of sports
 

@@ -16,6 +16,8 @@ require './app/helpers/helpers'
 require './sports_api'
 
 class Application < Sinatra::Base
+  set :public_folder, 'public'
+
   use LocaleMiddleware
   use SportsApi
 
@@ -32,7 +34,7 @@ class Application < Sinatra::Base
   end
 
   get '/' do
-    redirect '/sports'
+    erb :index
   end
 
   get '/sports' do
