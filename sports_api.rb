@@ -10,4 +10,8 @@ class SportsApi < Sinatra::Base
   get '/api/sports/:sport_id' do
     EventsPresenter.new(@sport_list, params).events.to_json
   end
+
+  get '/api/sports/:sport_id/events/:event_id' do
+    OutcomesPresenter.new(@sport_list, params).outcomes.to_json
+  end
 end

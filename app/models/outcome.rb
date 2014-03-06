@@ -13,4 +13,16 @@ class Outcome
   field :nr
   field :market
 
+  def to_json(options = {})
+    Yajl::Encoder.encode(as_json)
+  end
+
+  private
+  def as_json
+    {
+      description: description,
+      market: market,
+      price: price
+    }
+  end
 end

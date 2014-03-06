@@ -32,4 +32,13 @@ describe Outcome do
     it { expect(subject.nr).to eq(false) }
     it { expect(subject.market).to eq("Match Betting - 90 Mins") }
   end
+
+  describe "#to_json" do
+    subject { described_class.new(data).to_json }
+
+
+    let(:expected) {"{\"description\":\"Hibernian\",\"market\":\"Match Betting - 90 Mins\",\"price\":\"16/1\"}" }
+
+    it { expect(subject).to eq(expected) }
+  end
 end
