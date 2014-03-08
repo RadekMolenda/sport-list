@@ -10,7 +10,6 @@ describe EventsPresenter do
   let(:event) { double("Event") }
   let(:events) { [event] }
   let(:sport_id) { 1 }
-  let(:event_id) { 1 }
   describe "#events" do
     let(:params) { { "sport_id" => sport_id } }
 
@@ -22,23 +21,9 @@ describe EventsPresenter do
     end
   end
 
-  describe "#event" do
-    let(:params) { { "sport_id" => sport_id, "event_id" => event_id } }
-
-    subject { presenter.event }
-
-    before do
-      sport.stub(:find_event).with(event_id).and_return(event)
-    end
-
-    it "fetches event" do
-      expect(presenter).to receive(:sport).and_return(sport)
-      expect(subject).to eq(event)
-    end
-  end
 
   describe "#events_locals" do
-    let(:params) { { "sport_id" => sport_id, "event_id" => event_id } }
+    let(:params) { { "sport_id" => sport_id } }
     let(:expected) {
       {
         active_id: -1,

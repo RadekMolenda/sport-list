@@ -20,7 +20,7 @@ class Sport
     Yajl::Encoder.encode(as_json)
   end
 
-  private
+  protected
   def as_json
     {
       title: title,

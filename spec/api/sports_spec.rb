@@ -44,7 +44,8 @@ describe 'API', type: :api do
       let(:expected) {
         {
           "title" => "Ituano SP v CA Linense",
-          "id" => 25544810
+          "id" => 25544810,
+          "sport_id" => 100
         }
       }
 

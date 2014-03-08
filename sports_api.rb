@@ -1,3 +1,5 @@
+require './app/presenters/events_api_presenter'
+
 class SportsApi < Sinatra::Base
   before do
     @sport_list = SportList.fetch(I18n.locale)
@@ -8,7 +10,7 @@ class SportsApi < Sinatra::Base
   end
 
   get '/api/sports/:sport_id' do
-    EventsPresenter.new(@sport_list, params).events.to_json
+    EventsAPIPresenter.new(@sport_list, params).events
   end
 
   get '/api/sports/:sport_id/events/:event_id' do

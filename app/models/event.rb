@@ -21,7 +21,6 @@ class Event
     Yajl::Encoder.encode(as_json)
   end
 
-  private
   def as_json
     {
       id: id,
