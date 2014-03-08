@@ -1,5 +1,5 @@
-define(['backbone', 'sports_client', 'views/sports_view'],
-       function(Backbone, client, SportsView) {
+define(['backbone', 'sports_client', 'views/sports_view', 'views/events_view'],
+       function(Backbone, client, SportsView, EventsView) {
 
   function sports() {
     client.sports().done(function(sports) {
@@ -8,6 +8,12 @@ define(['backbone', 'sports_client', 'views/sports_view'],
     });
   };
 
+  function events(sport_id) {
+    client.events(sport_id).done(function(sports) {
+      var view = new EventsView({collection: sports});
+      view.render();
+    });
+  }
   return Backbone.Router.extend({
     routes : {
       '': "sports",
@@ -17,9 +23,7 @@ define(['backbone', 'sports_client', 'views/sports_view'],
 
     sports: sports,
 
-    events: function (sport_id) {
-      client.events(sport_id).done(function(sports) { console.log(sports); });
-    },
+    events: events,
 
     outcomes: function (sport_id, event_id) {
       client.events(sport_id).done(function(sports) { console.log(sports); });
