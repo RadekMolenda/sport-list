@@ -1,7 +1,4 @@
 Feature: Sport list
-Scenario: homepage
-  Given I am on the homepage
-  Then I should see a list of sports
 
 Scenario: List all sports
   Given I am on the sports page
