@@ -1,11 +1,12 @@
-define(['backbone', 'sports_client', 'views/sports_view', 'views/events_view', 'views/outcomes_view'],
-       function(Backbone, client, SportsView, EventsView, OutcomesView) {
+define(['jquery', 'backbone', 'sports_client', 'views/sports_view', 'views/events_view', 'views/outcomes_view'],
+       function($, Backbone, client, SportsView, EventsView, OutcomesView) {
 
   function sports() {
     client.sports().done(function(sports) {
       var view = new SportsView({collection: sports});
       view.render();
     });
+    $('#outcomes').html('');
   }
 
   function events(sport_id) {
