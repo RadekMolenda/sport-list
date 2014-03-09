@@ -13,4 +13,4 @@ Following command runs test suite, both rspec and cucumber
     bundle exec rake
 
 ## The app
-The app is currently deployed here:[![Sport list](http://lit-springs-9258.herokuapp.com/sports)](http://lit-springs-9258.herokuapp.com/sports)
+The app is currently deployed here:[![Sport list](http://lit-springs-9258.herokuapp.com/](http://lit-springs-9258.herokuapp.com/)
