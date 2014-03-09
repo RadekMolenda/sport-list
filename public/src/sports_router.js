@@ -9,6 +9,7 @@ define(['backbone', 'sports_client', 'views/sports_view', 'views/events_view', '
   }
 
   function events(sport_id) {
+    sports();
     client.events(sport_id).done(function(events) {
       var view = new EventsView({collection: events});
       view.render();
@@ -16,6 +17,8 @@ define(['backbone', 'sports_client', 'views/sports_view', 'views/events_view', '
   }
 
   function outcomes(sport_id, event_id) {
+    sports();
+    events(sport_id);
     client.outcomes(sport_id, event_id).done(function(outcomes) {
       var view = new OutcomesView({collection: outcomes});
       view.render();

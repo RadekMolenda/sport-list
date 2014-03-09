@@ -3,6 +3,7 @@ define(['backbone', 'views/outcome_view'], function(Backbone, OutcomeView){
     el: '#outcomes',
 
     render: function () {
+      this.$el.html("");
       _.each(this.collection, function(outcome) {
         var view = new OutcomeView({model: outcome});
         this.$el.append(view.render().el);
