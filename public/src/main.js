@@ -22,6 +22,6 @@ requirejs.config({
   }
 });
 
-define(['app'], function(App) {
+require(['app'], function(App) {
   App.start();
 });

@@ -1,8 +1,7 @@
-define(['backbone', 'sports_router', 'sports_controller'],
-       function(Backbone, router, sports_controller) {
+define(['backbone', 'sports_router'], function(Backbone, Router) {
   return {
     start: function () {
-      new (router(sports_controller))();
+      new Router();
       Backbone.history.start();
     }
   };
